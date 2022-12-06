@@ -37,10 +37,10 @@ const GetComment = async(data) => {
     return new Promise(async(resolve,reject) => {
 
         
-        var idEntrada = data.id;
+        var idComentario = data.id;
 
         const query = `SELECT * FROM comentario 
-            WHERE id = ${idEntrada}`;
+            WHERE id = ${idComentario}`;
 
         pool.getConnection(function(err, conn) {
 
