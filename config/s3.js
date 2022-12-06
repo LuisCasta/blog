@@ -1,11 +1,11 @@
 const {S3Client, PutObjectCommand} = require('@aws-sdk/client-s3');
+const dotenv = require('dotenv').config();
 const fs = require('fs')
 
-const PUBLIC_kEY = 'AKIAWUK6LOLRPAAJ6DV4'
-const SECRET_KEY = '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'
-const BUCKET = 'blogcuentame'
-const REGION = 'us-east-2'
-const USERS3 = 'adminblog'
+const PUBLIC_kEY = process.env.PUBLIC_kEY;
+const SECRET_KEY = process.env.SECRET_KEY;
+const BUCKET = process.env.BUCKET;
+const REGION = process.env.REGION;
 
 const client = new S3Client({region : REGION , 
         credentials: {

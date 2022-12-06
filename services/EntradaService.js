@@ -13,12 +13,12 @@ const CreatePost = async(data) => {
             VALUES ('${entrada?.titulo}','${entrada?.cuerpo}','${create_at}')`;
 
         pool.getConnection(function(err, conn) {
-            // Do something with the connection
+            
 
             if(conn){
 
                 conn.query(query, function(err, rows, fields) {
-                    console.log(err)
+                    
                     if(err)
                         reject(err)
                     else
@@ -46,7 +46,7 @@ const AddImage = async(data) => {
 
                 conn.query(query, function(err, rows, fields) {
                     
-                    console.log(err)
+                    
                     if(err)
                         reject(err)
                     else
@@ -76,7 +76,7 @@ const GetPost = async(data) => {
 
                 conn.query(query, function(err, rows, fields) {
                     
-                    console.log(err)
+                    
                     if(err)
                         reject(err)
                     else
@@ -105,7 +105,7 @@ const GetPostTitle = async(data) => {
 
                 conn.query(query, function(err, rows, fields) {
                     
-                    console.log(err)
+                    
                     if(err)
                         reject(err)
                     else
@@ -130,7 +130,7 @@ const GetListPost = async() => {
 
                 conn.query(query, function(err, rows, fields) {
                     
-                    console.log(err)
+                    
                     if(err)
                         reject(err)
                     else
@@ -160,7 +160,7 @@ const UpdatePost = async(data) => {
 
                 conn.query(query, function(err, rows, fields) {
                     
-                    console.log(err)
+                    
                     if(err)
                         reject(err)
                     else
@@ -190,7 +190,7 @@ const DeletePost = async(data) => {
 
                 conn.query(query, function(err, rows, fields) {
                     
-                    console.log(err)
+                    
                     if(err)
                         reject(err)
                     else

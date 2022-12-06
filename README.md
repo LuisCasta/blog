@@ -1,2 +1,11 @@
-# blog
-app blog node
+# APP NODE JS EXPRESS
+BLOG DE PRUEBAS
+
+# DATA BASE
+RDS AWS
+
+# FILE STORAGE
+S3 AWS
+
+# API DOCUMENTARION
+/api/v1/docs
