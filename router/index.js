@@ -13,7 +13,8 @@ const apiRouter = () => {
      * @openapi
      * /api/v1/entrada:
      *   get:
-     *     summary: Obtenet entrada por id
+     *     summary: Buscar entrada por su id
+     *     description: Buscar entrada por su id
      *     tags: 
      *      - entrada
      *     requestBody:
@@ -256,6 +257,46 @@ const apiRouter = () => {
      *                 message:
      *                    type: string
      * 
+     * /api/entrada/v1/searchTitle:
+     *  get:
+     *      summary: Buscar entrada por su titulo en lenguaje natural
+     *      description: Buscar entrada por su titulo en lenguaje natural
+     *      tags: 
+     *      - entrada
+     *      requestBody:
+     *       required: true
+     *       content:
+     *          application/json:
+     *            schema:
+     *              type: object
+     *              properties:
+     *                titulo:
+     *                  type: string
+     * 
+     * /api/entrada/v1/listAll:
+     *  get:
+     *      summary: Obtiene todas las entradas
+     *      description: Obtiene todas las entradas
+     *      tags: 
+     *      - entrada
+     * 
+     * /api/entrada/v1/addImage:
+     *  post:
+     *      summary: Agrega imagen a una entrada existente.
+     *      description: Agrega imagen a una entrada existente.
+     *      tags: 
+     *      - entrada
+     *      requestBody:
+     *       required: true
+     *       content:
+     *          application/json:
+     *            schema:
+     *              type: object
+     *              properties:
+     *                id_entrada:
+     *                  type: integer
+     *                img:
+     *                  type: file
      */
     
     routes.use("/entrada",entradaRouter);
