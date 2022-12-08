@@ -9,7 +9,7 @@ const CreatePost = async(data) => {
 
         var create_at = moment().format('YYYY-MM-DD hh:mm:ss');
 
-        const query = `INSERT INTO entrada2 (titulo, cuerpo, create_time)
+        const query = `INSERT INTO entrada (titulo, cuerpo, create_time)
             VALUES ('${entrada?.titulo}','${entrada?.cuerpo}','${create_at}')`;
 
         pool.getConnection(function(err, conn) {
@@ -38,7 +38,7 @@ const AddImage = async(data) => {
         
         const entrada = {...data};
         
-        const query = `UPDATE entrada2 SET img = '${entrada.url_image}' WHERE id = ${entrada.id_entrada}`;
+        const query = `UPDATE entrada SET img = '${entrada.url_image}' WHERE id = ${entrada.id_entrada}`;
         
         pool.getConnection(function(err, conn) {
 
@@ -67,7 +67,7 @@ const GetPost = async(data) => {
         
         var idEntrada = data.id;
 
-        const query = `SELECT * FROM entrada2 
+        const query = `SELECT * FROM entrada 
             WHERE id = ${idEntrada}`;
 
         pool.getConnection(function(err, conn) {
@@ -96,7 +96,7 @@ const GetPostTitle = async(data) => {
         /*const query = `SELECT * FROM entrada 
             WHERE titulo like '%${data}%'`;*/
 
-        const query = `SELECT * FROM entrada2 
+        const query = `SELECT * FROM entrada 
             WHERE MATCH (titulo) AGAINST ('${data}')`;
 
         pool.getConnection(function(err, conn) {
@@ -122,7 +122,7 @@ const GetListPost = async() => {
     return new Promise(async (resolve,reject) => {
         
 
-        const query = `SELECT * FROM entrada2 WHERE delete_time IS NULL`;
+        const query = `SELECT * FROM entrada WHERE delete_time IS NULL`;
         
         pool.getConnection(function(err, conn) {
 
@@ -151,7 +151,7 @@ const UpdatePost = async(data) => {
 
         let update_time = moment().format('YYYY-MM-DD hh:mm:ss');
         
-        const query = `UPDATE entrada2 SET titulo = '${entrada?.titulo}', cuerpo ='${entrada?.cuerpo}',
+        const query = `UPDATE entrada SET titulo = '${entrada?.titulo}', cuerpo ='${entrada?.cuerpo}',
         update_time = '${update_time}' WHERE id = ${entrada.id}`;
         
         pool.getConnection(function(err, conn) {
@@ -181,7 +181,7 @@ const DeletePost = async(data) => {
         
         var delete_at = moment().format('YYYY-MM-DD hh:mm:ss'); 
         //console.log(create_at)
-        const query = `UPDATE entrada2 SET delete_time = '${delete_at}'
+        const query = `UPDATE entrada SET delete_time = '${delete_at}'
             WHERE id = ${data}`; 
         
         pool.getConnection(function(err, conn) {

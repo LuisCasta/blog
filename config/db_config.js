@@ -4,9 +4,9 @@ const dotenv = require('dotenv').config();
 
 const pool = mysql.createPool({
     
-    host: process.env.HOSTDB, //|| 'database-2.cwxbu9wuucdm.us-east-2.rds.amazonaws.com',
-    user: process.env.USERDB ,//|| 'admin',
-    password : process.env.PASSDB,// || 'adminpassword',
+    host: process.env.HOSTDB,
+    user: process.env.USERDB,
+    password : process.env.PASSDB,
     database: process.env.DB,
     waitForConnections: true,
     connectionLimit: 10,
