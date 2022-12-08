@@ -257,7 +257,7 @@ const apiRouter = () => {
      *                 message:
      *                    type: string
      * 
-     * /api/entrada/v1/searchTitle:
+     * /api/v1/entrada/searchTitle:
      *  get:
      *      summary: Buscar entrada por su titulo en lenguaje natural
      *      description: Buscar entrada por su titulo en lenguaje natural
@@ -273,14 +273,14 @@ const apiRouter = () => {
      *                titulo:
      *                  type: string
      * 
-     * /api/entrada/v1/listAll:
+     * /api/v1/entrada/listAll:
      *  get:
      *      summary: Obtiene todas las entradas
      *      description: Obtiene todas las entradas
      *      tags: 
      *      - entrada
      * 
-     * /api/entrada/v1/addImage:
+     * /api/v1/entrada/addImage:
      *  post:
      *      summary: Agrega imagen a una entrada existente.
      *      description: Agrega imagen a una entrada existente.
@@ -296,7 +296,7 @@ const apiRouter = () => {
      *                id_entrada:
      *                  type: integer
      *                img:
-     *                  type: file
+     *                  type: form
      */
     
     routes.use("/entrada",entradaRouter);
@@ -503,51 +503,21 @@ const apiRouter = () => {
      *                 message:
      *                    type: string
      *
-     * get:
-     *     summary: Enlistar todas las entradas
-     *     tags: 
-     *      - entrada
-     *     requestBody:
-     *       required: true
-     *       content:
+     * /api/v1/comentario/entrada:
+     *   get:
+     *      summary: Obtiene todas los comentarios de una entradda
+     *      description: Obtiene todas los comentarios de una entradda
+     *      tags: 
+     *      - comentario
+     *      requestBody:
+     *        required: true
+     *        content:
      *          application/json:
      *            schema:
      *              type: object
      *              properties:
      *                id_entrada:
      *                  type: integer
-     *     responses:
-     *       200:
-     *         description: ok
-     *         content:
-     *           application/json:
-     *             schema:
-     *               type: object
-     *               properties:
-     *                 data:
-     *                    type: object
-     *       400:
-     *         description: error
-     *         content:
-     *           application/json:
-     *             schema:
-     *               type: object
-     *               properties:
-     *                 status:
-     *                    type: integer
-     *                 message:
-     *                    type: string
-     *       500:
-     *         description: error
-     *         content:
-     *           application/json:
-     *             schema:
-     *               type: object
-     *               properties:
-     *                 status:
-     *                    type: integer
-     *                 message:
-     *                    type: string
      * 
      */
     
